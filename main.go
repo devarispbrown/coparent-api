@@ -13,8 +13,14 @@ import (
 )
 
 func init() {
+	url := os.Getenv("CP_DB_URL")
 	orm.RegisterDriver("postgres", orm.DRPostgres)
-	orm.RegisterDataBase("default", "postgres", "user=postgres password=postgres dbname=coparent_dev sslmode=disable")
+	if url == "" {
+		orm.RegisterDataBase("default", "postgres", "user=postgres password=postgres dbname=coparent_dev sslmode=disable")
+	} else {
+		orm.RegisterDataBase("default", "postgres", url)
+	}
+
 	name := "default"
 	force := false
 	verbose := true
