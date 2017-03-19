@@ -8,13 +8,21 @@
 package routers
 
 import (
+	"os"
+
 	"github.com/devarispbrown/coparent-api/controllers"
 
 	"github.com/astaxie/beego"
 )
 
 func init() {
-	ns := beego.NewNamespace("/v1",
+	runMode := os.Getenv("RUN_MODE")
+	if runMode == "" {
+		runMode = "dev"
+	}
+	beego.BConfig.RunMode = runMode
+
+	ns := beego.NewNamespace("/api/v1",
 		beego.NSNamespace("/object",
 			beego.NSInclude(
 				&controllers.ObjectController{},

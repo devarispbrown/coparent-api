@@ -25,11 +25,6 @@ func init() {
 }
 
 func main() {
-	runMode := os.Getenv("RUN_MODE")
-	if runMode == "" {
-		runMode = "dev"
-	}
-	beego.BConfig.RunMode = runMode
 
 	port := os.Getenv("PORT")
 	if port == "" {
