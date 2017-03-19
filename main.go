@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"strconv"
 
 	_ "github.com/devarispbrown/coparent-api/routers"
 
@@ -23,5 +25,20 @@ func init() {
 }
 
 func main() {
+	runMode := os.Getenv("RUN_MODE")
+	if runMode == "" {
+		runMode = "dev"
+	}
+	beego.BConfig.RunMode = runMode
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	portNumber, err := strconv.Atoi(port)
+	if err != nil {
+		panic("BLAH")
+	}
+	beego.BConfig.Listen.HTTPPort = portNumber
 	beego.Run()
 }
