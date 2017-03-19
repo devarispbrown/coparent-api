@@ -20,7 +20,7 @@ func init() {
 				&controllers.ObjectController{},
 			),
 		),
-		beego.NSNamespace("/user",
+		beego.NSNamespace("/parents",
 			beego.NSInclude(
 				&controllers.ParentController{},
 			),

@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"encoding/json"
 	"strconv"
 
 	"github.com/astaxie/beego"
@@ -21,7 +22,7 @@ func (o *ParentController) GetAllParents() {
 // @router / [post]
 func (o *ParentController) CreateParent() {
 	var parent models.Parent
-	o.ParseForm(&parent)
+	json.Unmarshal(o.Ctx.Input.RequestBody, &parent)
 	result, err := models.CreateParent(parent)
 	if err != nil {
 		o.Abort("500")

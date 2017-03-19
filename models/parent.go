@@ -46,6 +46,7 @@ func GetAllParents() []*Parent {
 
 func CreateParent(parent Parent) (p Parent, err error) {
 	o := orm.NewOrm()
+	fmt.Println(parent)
 
 	id, err := o.Insert(&parent)
 	if err == nil {
@@ -53,6 +54,7 @@ func CreateParent(parent Parent) (p Parent, err error) {
 	}
 
 	return parent, nil
+
 }
 
 func GetOneParent(id string) (Parent, error) {
