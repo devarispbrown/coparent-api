@@ -1,0 +1,6 @@
+{
+  "name": "coparent-api",
+  "description": "v1 API for Coparent",
+  "image": "heroku/go:1.6",
+  "mount_dir": "src/github.com/devarispbrown/coparent-api"
+}
