@@ -11,7 +11,7 @@ import (
 )
 
 func init() {
-	orm.RegisterDriver("postgres", orm.DR_Postgres)
+	orm.RegisterDriver("postgres", orm.DRPostgres)
 	orm.RegisterDataBase("default", "postgres", "user=postgres password=postgres dbname=coparent_dev sslmode=disable")
 	name := "default"
 	force := false
