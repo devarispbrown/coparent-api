@@ -69,5 +69,6 @@
 			"revisionTime": "2017-03-13T20:04:23Z"
 		}
 	],
-	"rootPath": "github.com/devarispbrown/coparent-api"
+	"rootPath": "github.com/devarispbrown/coparent-api",
+	"goVersion": "go1.8"
 }
